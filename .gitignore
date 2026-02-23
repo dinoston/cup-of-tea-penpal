@@ -1,0 +1,20 @@
+# Firebase
+firebase/functions/lib/
+firebase/functions/node_modules/
+.firebase/
+.firebaserc
+
+# Expo / React Native
+mobile/node_modules/
+mobile/.expo/
+mobile/dist/
+mobile/android/
+mobile/ios/
+mobile/.env
+mobile/google-services.json
+mobile/GoogleService-Info.plist
+
+# General
+.DS_Store
+*.log
+.env
