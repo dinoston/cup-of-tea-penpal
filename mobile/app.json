@@ -17,7 +17,9 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.dinoston.cupofteapenpal",
       "infoPlist": {
-        "UIBackgroundModes": ["remote-notification"]
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
       }
     },
     "android": {
@@ -26,7 +28,10 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FAF7F2"
       },
-      "permissions": ["RECEIVE_BOOT_COMPLETED", "INTERNET"],
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "INTERNET"
+      ],
       "edgeToEdgeEnabled": true
     },
     "plugins": [
@@ -47,8 +52,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "YOUR_EAS_PROJECT_ID"
+        "projectId": "922de152-ecd0-414c-8cee-7b91d64de6ea"
       }
-    }
+    },
+    "owner": "yongsukshin"
   }
 }
