@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useAuth } from '../../../hooks/useAuth';
+import { useInterstitialAd } from '../../../hooks/useInterstitialAd';
 import { useMessages } from '../../../hooks/useMessages';
 import { useCurrentMatch } from '../../../hooks/useCurrentMatch';
 import { useProfile } from '../../../hooks/useProfile';
@@ -31,9 +32,19 @@ export default function ChatScreen() {
     user?.uid ?? null,
   );
   const { messages, loading } = useMessages(matchId ?? null);
+  const { showAd } = useInterstitialAd();
   const [text, setText] = useState('');
   const [sending, setSending] = useState(false);
   const flatRef = useRef<FlatList>(null);
+  const adShownRef = useRef(false);
+
+  // Show interstitial once when chat opens
+  useEffect(() => {
+    if (!adShownRef.current) {
+      adShownRef.current = true;
+      setTimeout(() => showAd(), 1500);
+    }
+  }, []);
 
   // Mark messages as read when screen is focused
   useEffect(() => {

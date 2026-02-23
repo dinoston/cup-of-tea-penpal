@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { useAuth } from '../../hooks/useAuth';
 import { useProfile } from '../../hooks/useProfile';
 import { useCurrentMatch } from '../../hooks/useCurrentMatch';
@@ -14,6 +15,7 @@ import { useMatchHistory } from '../../hooks/useMatchHistory';
 import { MatchCard } from '../../components/MatchCard';
 import { CountdownTimer } from '../../components/CountdownTimer';
 import { COLORS } from '../../constants/config';
+import { ADMOB } from '../../constants/admob';
 import { COUNTRIES } from '../../constants/countries';
 
 export default function HomeScreen() {
@@ -92,6 +94,15 @@ export default function HomeScreen() {
           </Text>
         </View>
       </ScrollView>
+
+      {/* Banner Ad - fixed at bottom */}
+      <View style={styles.bannerContainer}>
+        <BannerAd
+          unitId={ADMOB.BANNER_ID}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          requestOptions={{ requestNonPersonalizedAdsOnly: true }}
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -102,7 +113,7 @@ function getFlag(code: string) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
-  scroll: { paddingBottom: 40 },
+  scroll: { paddingBottom: 80 },
   header: {
     padding: 24,
     paddingBottom: 16,
@@ -152,4 +163,10 @@ const styles = StyleSheet.create({
   historyMeta: { color: COLORS.textMuted, fontSize: 12, marginTop: 2 },
   footer: { marginTop: 40, alignItems: 'center', paddingHorizontal: 32 },
   footerText: { color: COLORS.textMuted, fontSize: 13, fontStyle: 'italic', textAlign: 'center' },
+  bannerContainer: {
+    alignItems: 'center',
+    backgroundColor: COLORS.surface,
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+  },
 });

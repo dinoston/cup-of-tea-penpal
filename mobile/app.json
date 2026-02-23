@@ -36,6 +36,12 @@
         {
           "color": "#C8813A"
         }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-8217343487388036~8228223505"
+        }
       ]
     ],
     "extra": {
