@@ -135,7 +135,7 @@ export default function ProfileScreen() {
             <View>
               <Text style={styles.label}>Available for matching</Text>
               <Text style={styles.toggleSub}>
-                {available ? 'You'll receive a penpal every Monday' : 'Matching is paused'}
+                {available ? "You'll receive a penpal every Monday" : 'Matching is paused'}
               </Text>
             </View>
             <Switch
